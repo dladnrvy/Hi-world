@@ -1,0 +1,74 @@
+<!DOCTYPE >
+<html>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<body>
+		
+	<h1>회원가입</h1>
+<%= form_tag member_index_path :html =>{:id => 'form'} do %>
+	아이디(이메일) <input type="email" id="email" name="email"/><br>
+	비밀번호 확인 <input type="password" name="password_confirmation" /><br>
+	이름 <input type="text" name="name"/><br>
+	
+	<input type="submit"  value="확인" class="btn" />
+	<input type="button" id="cancel" value="취소" class="btn" />
+
+<% end %>
+		
+	</body>
+<script>
+window.onload = function () {
+};
+	var form = document.getElementById('form');
+
+
+	// 취소버튼 생성
+ 	var cancel = document.getElementById('cancel');
+ 	
+ 	cancel.onclick = function(){
+	   location.href = '/';
+	 }
+	 
+	 //비밀번호와 비밀번호 확인 체크, 유효성검사 변수
+	 var password = document.getElementsByName('password').value;
+	 var password_confirmation = document.getElementsByName('password_confirmation').value;
+	 //유효성검사 변수
+	 var email = document.getElementById('email').value;
+	 var name = document.getElementsByName('name').value;
+	 var from = document.getElementsByName('from').value;
+	 
+	 form.onsubmit = function(){
+	 	alert(email);
+	 	//유효성검사
+	 	if(typeof password == 'undefined' || typeof password_confirmation == 'undefined'  || typeof email == 'undefined' || typeof name == 'undefined' || typeof from == 'undefined'){
+	 		alert('빈 값이 있습니다. 확인해주세요.');
+	 		alert(password);
+	 		alert(name);
+	 		return false;
+	 	 }
+	 	 
+	 /*
+	  if(password_confirmation != password){
+			  alert('비밀번호를 다시 확인해주세요!');
+			  return false;
+				  }*/
+	 
+	 		
+	 		
+	 	
+	 }
+	 	
+	 	
+	 	
+	 
+ 	
+	
+
+
+	
+
+	
+</script>
+
+	
+</html>
+

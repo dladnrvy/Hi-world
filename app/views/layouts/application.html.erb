@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TReservation</title>
+     <%= stylesheet_link_tag "application" %>
+     <%= javascript_include_tag "application" %>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	
+	
+  </head>
+
+  <body>
+  	<div id="main">
+	  	<!-- nav -->
+	  	
+	  		
+	  		<div class="logo">
+	  			
+	  			<!-- 내 홈페이지로 돌아오기 -->
+	  		<%= link_to login_index_path do%>
+	  		<img src="<%= asset_path 'hiworld3.png' %>" id="image" />
+	  		<div id="hiworld">HI-WORLD</div>
+	  		<% end %>
+	  		<br><br>
+	  		</div>
+	  
+	  		<div class="nav">
+	  			<% if user_signed_in? %>
+	  			
+	  			<%= link_to login_path(current_user), :method => :delete, :data => { :confirm =>'진짜?'}  do %><div class="waves-effect waves-light btn" id="rogout">로그아웃</div><% end %>
+	  			<%= link_to diary_index_path do %><div class="waves-effect waves-light btn" >다이어리</div><% end %>
+	  			<%= link_to post_index_path do %><div class="waves-effect waves-light btn" id="postnav">방명록</div><% end %>
+	  			
+	  		
+	  			
+	  			<br><br>
+	  			
+	  			
+				
+				
+	  			<!-- 프로필 -->
+	  			<%= link_to "/member/profile/#{current_user.id}" do %>
+	  	<div class="container">
+	<div class="row">
+	  	<div class="col s12 m4" id="col">
+			<div class="card" id="card">
+				<div class="card-image">
+					<!-- 이미지 있는지 확인 -->
+					<% if current_user.profileImages.url.nil? %>
+				
+					<img src="http://materializecss.com/images/office.jpg" />
+					
+					<% else %>
+					
+						<img src="<%= current_user.profileImages.url %>" id="profileImg">	
+					<% end %>
+				</div>
+				<div class="card-content">
+					<div class="card-title">
+						 <%= current_user.name %>
+					</div>
+					<p>
+						<%= current_user.email %>
+					</p>
+					
+					<br>
+					<p id="profilePost">
+						<%= current_user.profile_post %>
+					</p>
+					
+				
+					
+					<% end %>
+					
+	
+				
+				</div>
+		
+
+		</div>
+		</div>
+		
+	  			<% else %>
+	  			
+	  			<%= link_to new_member_path do %><li class="waves-effect waves-light btn">회원가입</li><% end %>
+	  			<%= link_to new_login_path do %><li class="waves-effect waves-light btn">로그인</li><% end %>
+	  			<br><br>
+	  			
+	  		</ul>
+	  	</div>
+	  	
+	  	<% end %>
+	  	
+	  	
+	    <div id="content">
+	    	<%= yield %>
+	    </div>
+	    
+    </div>
+    </div>
+  </body>
+  <script>
+  window.onload = function () {
+};
+  		
+  	
+  </script>
+</html>

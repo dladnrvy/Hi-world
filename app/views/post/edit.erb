@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="row">
+		<div class="card col s12" id="cols">
+			<div class="card-content" id="cards">
+				<div class="card-title" >
+					방명록 수정
+				</div>
+				<%= form_tag post_path(@post), method: 'patch' do %>
+				<input type="hidden" name="id" value="<%= @post.id %>">
+				<div class="input-field">
+					<!-- <%= file_field_tag :images %> -->
+					<%= text_area_tag :content, @post.p_post , class: "materialize-textarea", placeholder: "비방 및 욕설을 삼가해주세요!" %>
+				</div>
+				<div class="input-field">
+					<%= button_tag "수정", class: "btn waves-effect waves-light" %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+

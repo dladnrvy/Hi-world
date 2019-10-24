@@ -1,0 +1,50 @@
+<div class="container">
+	<div class="row">
+		
+		<div class="col s12 m8">
+		
+			<div id="write"><%= link_to new_post_path, class: "right" do%><span class="waves-effect waves-light btn">방명록 작성</span><% end %></div>
+			<br><br>
+
+			<% @posts.each do |post| %>
+			<div class="card">
+				<div class="card-content">
+					
+					
+						
+						<span class="right">
+						<%= post.p_date %>
+							</span>
+						
+						
+						<p id="postName">작성자 <%= post.user.name %></p> 
+						
+						
+					<p class="pre-line">
+					<%= post.p_post %>
+					</p>
+				</div>
+				<div class="card-action">
+				<% if current_user.id == post.user.id %>
+					<%= link_to '삭제', "post/delete/#{post.id}" , :method => 'delete' , class: "right" %>
+					<%= link_to '수정', edit_post_path(post), class: "right" %>
+					<% end %>
+					<br>
+				</div>
+			</div>
+			<% end %>
+			
+			
+			<% if @posts_count == 0 %>
+			<div class="card">
+			<div class="card-content">
+			<p class="pre-line">첫번째 방명록을 작성보세요.</p>
+			</div>
+				</div>
+			
+			<% end %>
+			
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,94 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "post.scss";
+@import "member.scss"
+@import "diary.scss"
+
+body{
+	padding: 0px;
+	margin: 0px;
+	background-color: #fefaef;	
+}
+
+#main{
+	margin: 5%;
+	padding: 2%;
+	height: 100%;
+	background-color: #ccdacd;
+	border-radius: 10px;
+	
+}
+
+/*네비*/
+#postnav{
+	width: 93px;
+}
+#rogout{
+	margin-left: 50px;
+	background-color: #2f656a;
+}
+
+.container{
+ display: inline;	
+}
+.row{
+	display: inline;	
+}
+/*방명록 글*/
+#card{
+	width: 300px;
+	height: 400px;
+	float: left;
+	
+}
+#col{
+	padding-left: 50px;
+	width: 450px;
+	height: 100%;
+}
+/*로고*/
+#hiworld{
+	/*
+	padding-left: 10px;
+		padding-bottom: 30px;
+		line-height: 30px;*/
+	
+	color: #4b697f;
+	font-weight: bolder;
+	font-size: 15px;
+
+}
+.logo{
+	height: 100px;
+	display: inline-block;
+	margin-left: 10px;
+	
+}
+#image{
+	margin-left: 12px;
+	width: 50px;
+	height: 50px;
+	
+
+}
+#profileImg{
+	width: 300px;
+	height: 225px;
+}
+#profilePost{
+	color: #ff6600;
+}
+

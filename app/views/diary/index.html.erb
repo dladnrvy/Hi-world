@@ -1,0 +1,50 @@
+<div class="container">
+	<div class="row">
+		
+		<div class="col s12 m8">
+			
+				<% if current_user.id %>
+				<div id="write">
+					<%= link_to new_diary_path, class: "right" do%>
+					<span class="waves-effect waves-light btn">다이어리 작성</span>
+					<% end %>
+					</div>
+					<br><br>
+				<% end %>
+			
+			
+			
+			<%  @diarys.each do |diary| %>
+			
+			<%= link_to "/diary/text/#{diary.id}" do %>
+			<div class="card">
+				<div class="card-content">
+					<p  class="right"><%= diary.d_date %></p><br>
+					<div><%= diary.id %>번글</div><br>
+					<input type="hidden" value="<%= diary.id %>" />
+					
+					
+					
+					<span class="card-title">
+								
+							제목 : <%= diary.d_title %>
+						
+						</span>
+					
+					
+				</div>
+				<% end %>
+			</div>
+			<% end %>
+			
+			<% if @diarys_count == 0 %>
+			<div class="card">
+			<div class="card-content">
+			<p class="pre-line">첫번째 다이어리를 작성보세요.</p>
+			</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+

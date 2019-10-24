@@ -1,0 +1,2 @@
+class AddrenameprofileTouser < ApplicationRecord
+end

@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="card col s12" id="cols">
+			<div class="card-content" id="cards">
+				<div class="card-title" >
+					프로필 수정
+				</div>
+				<%= form_tag member_path(current_user), multipart: true, method: 'patch'  do %>
+				<div class="input-field">
+					<br>
+					<span class="profileUpdate">대표 이미지</span>  
+					
+					<%= file_field_tag :images %>
+					<br><br>
+					<span class="profileUpdate">소개</span><br>
+					<%= text_area_tag :content, current_user.profile_post, class: "materialize-textarea", placeholder: "나를 소개하는 문구를 작성해보세요." %>
+				</div>
+				<div class="input-field">
+					<%= button_tag "수정", class: "right btn waves-effect waves-light" %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
+

@@ -1,0 +1,9 @@
+<h1>로그인</h1>
+<%= form_tag login_index_path do %>
+	아이디<input type="email" name="email" /><br>
+	비밀번호<input type="password" name="password" /><br>
+	<input type="submit" value="로그인" class="btn" />
+<% end %>
+
+<br>
+<%= flash[:alert] %>

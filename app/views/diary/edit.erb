@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="row">
+		<div class="card col s12" id="cols">
+			<div class="card-content" id="cards">
+				<div class="card-title" >
+					다이어리 수정
+				</div>
+				<%= form_tag diary_path(@diary) , multipart: true, method: 'patch' do %>
+				<br>
+				<div class="input-field">
+					<%= file_field_tag :attachment %>
+					</div>
+					
+				<div class="input-field">
+					<%= text_area_tag :title, @diary.d_title , class:"materialize-textarea", placeholder: "  제목" %>
+					<%= text_area_tag :post, @diary.d_post , class: "materialize-textarea", placeholder: "  내용" %>
+				</div>
+				<div class="input-field">
+					<%= button_tag "수정", class: "btn waves-effect waves-light" %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,35 @@
+// Place all the styles related to the post controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body{
+  padding: 0px;
+  margin: 0px;
+  background-color: #fefaef;  
+}
+
+/*방명록 글작성*/
+/*
+#cards{
+  width: 600px;
+  height: 100%;
+  float: left;
+  
+}*/
+
+#cols{
+  padding-left: 50px;
+  width: 70%;
+  height: 400px;
+}
+
+// 입력한 대로 줄표현
+.pre-line{
+  white-space: pre-line;
+}
+
+#postName{
+  color : #ff6600;
+  font-size : 20px;
+}
