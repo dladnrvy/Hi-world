@@ -1,3 +1,36 @@
 // Place all the styles related to the searches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#searchMainDiv{
+  display : inline-block;
+  width: 70%;  
+  background-color : white;
+   border-radius : 5px;
+}
+
+#SearchProfileImg{
+  width: 50px;
+  border-radius : 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+   margin-bottom: -10px;
+}
+
+#searchDiv{
+  padding: 0px;
+  margin : 0px;
+}
+
+#searchName{
+ display : inline;
+ margin-right: 10px;
+}
+
+#search{
+  color : #2f656a;
+  font-weight: bolder;
+  margin-left: 10px;
+  text-align: center;
+}
+

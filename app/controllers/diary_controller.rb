@@ -1,9 +1,14 @@
 class DiaryController < ApplicationController
 
   def index
-    @diary = Diary.find_by(id: params[:user_id])
-    @diarys = Diary.all.order("id desc")
+    @diarys = Diary.where(user_id: current_user).order("id desc")
     @diarys_count = current_user.diarys.length
+ 
+  end
+  
+  def searchIndex
+      @diary_search = Diary.where(user_id: params[:id]).order("id desc")
+      @diarys_search_count = @diary_search.length
   end
   
   
@@ -23,7 +28,7 @@ class DiaryController < ApplicationController
   end
   
   def text
-      @diary = Diary.find(params[:id])
+      @diary = Diary.find(params[:d_id])
   end
   
   def edit

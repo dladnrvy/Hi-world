@@ -1,7 +1,28 @@
-<div>
-	<% @searches.each do |search| %>
-	<%= search.name %>
-	<img src="<%= search.profileImages.url %>"/>
+<div id="searchMainDiv">
+	
+	<p id="search">검색 결과</p>
+
+		<% if @searches.each do |search| %>
+		 <div class="collection" id="searchDiv">
+ 	   <!-- <a href="search/index" class="collection-item"> -->
+ 	   	<a href="search/index/<%= search.id %>" target="_blank" class="collection-item">
+    	<img src="<%= search.profileImages.url %>" id="SearchProfileImg"/>
+    	<p id="searchName"><%= search.name %></p>
+    	<%= search.profile_post %>
+    	</a>   	
+	  </div>
+	  
+	<input type="hidden" value="<% search.id %>"/>
+	
+		<% end %>
+	<% else %>
+	
 	<% end %>
 	
+	
+
+	
+	
+	
+		
 </div>

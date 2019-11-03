@@ -10,7 +10,7 @@
 				<div class="input-field">
 					<%= file_field_tag :attachment %>
 					</div>
-					
+					<input type="hidden" name="id" ,value="<%= params[:id] %>"/>
 				<div class="input-field">
 					<%= text_area_tag :title, nil, class:"materialize-textarea", placeholder: "  제목" %>
 					<%= text_area_tag :content, nil, class: "materialize-textarea", placeholder: "  내용" %>

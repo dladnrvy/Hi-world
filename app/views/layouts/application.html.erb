@@ -14,6 +14,9 @@
   </head>
 
   <body>
+  	
+  	
+  	
   	<div id="main">
 	  	<!-- nav -->
 	  	
@@ -29,35 +32,66 @@
 	  		</div>
 	  
 	  		<div class="nav">
-	  			<% if user_signed_in? %>
-	  			
-	  			<%= link_to login_path(current_user), :method => :delete, :data => { :confirm =>'진짜?'}  do %><div class="waves-effect waves-light btn" id="rogout">로그아웃</div><% end %>
+	  <% if user_signed_in? %>
+	  			<%= params[:id] %>
+	  		<%= current_user.id %>
+	  			<!-- 검색 전 자기 계정 --> 
+	  		<% if params[:id] != current_user.id? %>
+	  		
+	  			<%= link_to login_path(:current_user), :method => :delete, :data => { :confirm =>'진짜?'}  do %><div class="waves-effect waves-light btn" id="rogout">로그아웃</div><% end %>
 	  			<%= link_to diary_index_path do %><div class="waves-effect waves-light btn" >다이어리</div><% end %>
 	  			<%= link_to post_index_path do %><div class="waves-effect waves-light btn" id="postnav">방명록</div><% end %>
 	  			
+	  		<% else %>
+	  		
+	  	
+	  			<a href='/diary/search/<%= params[:id] %>'><div class="waves-effect waves-light btn" >다이어리</div></a>
+	  			<a href='/post/search/<%= params[:id] %>'><div class="waves-effect waves-light btn" id="postnav">방명록</div></a>
+	  		<% end %>
+	  			<div id="search" class="right">
+	  			<label for="autocomplete-input">
+          <%= form_tag searches_result_path, method: "get" do %>
+          <%= hidden_field_tag(:bulletin, "#{User}") %>
+          <input type="text" id="searchTest" name="search_text">
+           <input type="submit" class="btn" value="이름검색" />
+            <% end %>
+           
+         </label>
+         </div>
+	  		</div>	
 	  		
 	  			
-	  			<br><br>
+	<br><br>
 	  			
+				   
+				  
+				   
+				
 	  			
 				
 				
 	  			<!-- 프로필 -->
-	  			<%= link_to "/member/profile/#{current_user.id}" do %>
+	  			
+	  			
 	  	<div class="container">
 	<div class="row">
 	  	<div class="col s12 m4" id="col">
 			<div class="card" id="card">
 				<div class="card-image">
 					<!-- 이미지 있는지 확인 -->
+				
+				 
+	<% if params[:id].nil? %>
 					<% if current_user.profileImages.url.nil? %>
 				
 					<img src="http://materializecss.com/images/office.jpg" />
+					
 					
 					<% else %>
 					
 						<img src="<%= current_user.profileImages.url %>" id="profileImg">	
 					<% end %>
+					
 				</div>
 				<div class="card-content">
 					<div class="card-title">
@@ -72,39 +106,87 @@
 						<%= current_user.profile_post %>
 					</p>
 					
+			
+					 <%= link_to "/member/profile/#{current_user.id}" do %>이미지 수정<% end %>
+	
+			
+			<!-- 검색 후 프로필출력 -->
+	<% else %>
+	
+			<% if User.find(params[:id]).profileImages.url.nil? %>
 				
+					<img src="http://materializecss.com/images/office.jpg" />
 					
+					
+					<% else %>
+					
+						<img src="<%= User.find(params[:id]).profileImages.url %>" id="profileImg">	
 					<% end %>
 					
-	
-				
+				</div>
+				<div class="card-content">
+					<div class="card-title">
+						 <%= User.find(params[:id]).name %>
+					</div>
+					<p>
+						<%= User.find(params[:id]).email %>
+					</p>
+					
+					<br>
+					<p id="profilePost">
+						<%= User.find(params[:id]).profile_post %>
+					</p>
+					
+				<!-- 이거 -->
+		<% end %>
 				</div>
 		
-
+	    
 		</div>
 		</div>
 		
-	  			<% else %>
+		
+		
+		
+	    
+		
+		
+		
+	  <% else %>
 	  			
 	  			<%= link_to new_member_path do %><li class="waves-effect waves-light btn">회원가입</li><% end %>
 	  			<%= link_to new_login_path do %><li class="waves-effect waves-light btn">로그인</li><% end %>
+	  			
+	  			
+				
 	  			<br><br>
 	  			
 	  		</ul>
 	  	</div>
 	  	
-	  	<% end %>
+	  <% end %>
+	 	 	<div id="content"> 	
+	    		<%= yield %>
+				</div>
 	  	
-	  	
-	    <div id="content">
-	    	<%= yield %>
-	    </div>
 	    
-    </div>
-    </div>
+		
+		
+		
+		</div>
+		
+
+		 	
+		 			
+	
+	
+		</div>
+
+    
   </body>
   <script>
   window.onload = function () {
+  	
 };
   		
   	

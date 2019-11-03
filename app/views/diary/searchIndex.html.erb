@@ -3,14 +3,7 @@
 		
 		<div class="col s12 m8">
 			
-				<% if current_user.id %>
-				<div id="write">
-					<%= link_to new_diary_path, class: "right" do%>
-					<span class="waves-effect waves-light btn">다이어리 작성</span>
-					<% end %>
-					</div>
-					<br><br>
-				<% end %>
+				
 			
 			
 
@@ -19,9 +12,9 @@
 			
 			
 		
-			<%  @diarys.each do |diary| %>
+			<%  @diary_search.each do |diary| %>
 				
-					<%= link_to "/diary/text/#{current_user.id}/#{diary.id}" do %>
+					<%= link_to "/diary/text/#{params[:id]}/#{diary.idx}" do %>
 					<div class="card">
 						<div class="card-content">
 							<p  class="right"><%= diary.d_date %></p><br>
@@ -52,7 +45,7 @@
 		 	
 		 	
 		 	
-	<% if @diarys_count == 0 %>
+	<% if @diarys_search_count == 0 %>
 				
 				<div class="card">
 				<div class="card-content">

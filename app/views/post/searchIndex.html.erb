@@ -4,14 +4,15 @@
 		<div class="col s12 m8">
 		
 			<div id="write">
-			<%= link_to new_post_path, class: "right" do%>
+			<a href="post/new/<%= params[:id] %>", class: "right" >
 			<span class="waves-effect waves-light btn">방명록 작성</span>
-			<% end %>
+			</a>
 			</div>
 			<br><br>
 
-	
-			<% @posts.each do |post| %>
+
+		
+		<% @posts_search.each do |post| %>
 			<div class="card">
 				<div class="card-content">
 					
@@ -26,22 +27,17 @@
 					</p>
 					
 				</div>
-				<div class="card-action">
-				<% if current_user.id == post.user.id %>
-					<%= link_to '삭제', "post/delete/#{post.id}" , :method => 'delete' , class: "right" %>
-					<%= link_to '수정', "post/#{current_user.id}/#{post.id}", class: "right" %>
-					<% end %>
-					<br>
-				</div>
 			</div>
-			
-			<% end %>
-			
-	
-	
+		
+		
+		<% end %>	
 			
 			
-			<% if @posts_count == 0 %>
+			
+			
+			
+			
+			<% if @posts_search_count == 0 %>
 			<div class="card">
 			<div class="card-content">
 			<p class="pre-line">첫번째 방명록을 작성보세요.</p>

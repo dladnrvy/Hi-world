@@ -16,6 +16,7 @@
 @import "post.scss";
 @import "member.scss"
 @import "diary.scss"
+@import "searches.scss";
 
 body{
 	padding: 0px;
@@ -31,6 +32,7 @@ body{
 	border-radius: 10px;
 	
 }
+
 
 /*네비*/
 #postnav{
@@ -91,4 +93,9 @@ body{
 #profilePost{
 	color: #ff6600;
 }
+#searchTest{
+	width: 120px;
+}
+
+
 
