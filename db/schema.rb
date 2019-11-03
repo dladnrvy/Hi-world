@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_24_035436) do
+ActiveRecord::Schema.define(version: 2019_11_03_065245) do
 
   create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin", force: :cascade do |t|
     t.bigint "user_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_10_24_035436) do
     t.bigint "user_id"
     t.text "p_post"
     t.string "p_date"
+    t.integer "p_user_idx"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
